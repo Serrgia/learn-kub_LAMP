@@ -6,16 +6,6 @@ pipeline {
     }
     
     stages {
-        
-        
-#        stage ('Delete all files') {
-#            steps{
-#                echo "Delete...."
-#                script {
-#                    sh "rm -f /home/user/laba/K8s/*.yaml"
-#                }
-#            }
-#        }
         stage('Deploy to minikube') {
            	steps{
            		echo "Deployment started ..."
