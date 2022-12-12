@@ -13,7 +13,7 @@ pipeline {
            		sh 'pwd'
            		sh 'hostname'
            		script {
-                sh "chmod -R /home/user/laba/K8s/workspace/WP_minikube/"
+                    sh "chmod -R /home/user/laba/K8s/workspace/WP_minikube/"
            		sh "kubectl create -f  /home/user/laba/K8s/workspace/WP_minikube/mysql-final.yaml"
            		sh "kubectl create -f  /home/user/laba/K8s/workspace/WP_minikube/wp-final.yaml"
                     }
