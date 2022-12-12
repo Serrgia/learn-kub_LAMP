@@ -1,0 +1,33 @@
+pipeline {
+    agent {
+    node {
+        label 'debian'
+        }
+    }
+    
+    stages {
+        
+        
+        stage ('Delete files') {
+            steps{
+                echo "Delete files......"
+                script {
+                    sh "rm -f /home/user/laba/K8s/workspace/*.yaml"
+                }
+            }
+        }
+        stage('Start to minikube') {
+           	steps{
+           		echo "Deployment started ..."
+           		sh 'ls -ltr'
+           		sh 'pwd'
+           		sh 'hostname'
+           		script {
+				sh "chmod -R 777 /home/user/laba/K8s/workspace/WP_minikube/"
+           		sh "kubectl create -f  /home/user/laba/K8s/workspace/WP_minikube/mysql-final.yaml"
+           		sh "kubectl create -f  /home/user/laba/K8s/workspace/WP_minikube/wp-final.yaml"
+                    }
+           		}
+            }
+        }
+    }
